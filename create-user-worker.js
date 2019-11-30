@@ -11,7 +11,10 @@ const client = new Client(config);
 client.subscribe('save-database', async function ({ task, taskService }) {
     const username = task.variables.get('username');
     const email = task.variables.get('email');
-    // const age = task.variables.get('age');
+    const age = task.variables.get('age');
+
+    console.log('User created!');
+    console.log(task.variables.getAll());
 
     await taskService.complete(task);
 });

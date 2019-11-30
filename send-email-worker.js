@@ -11,10 +11,9 @@ const client = new Client(config);
 client.subscribe('send-email', async function ({ task, taskService }) {
     const username = task.variables.get('username');
     const email = task.variables.get('email');
-    // const age = task.variables.get('age');
+    const age = task.variables.get('age');
 
-    console.log(`Username: ${username}`);
-    console.log(`Email: ${email}`);
-
+    console.log(`Sent email to user: ${username}`);
+    
     await taskService.complete(task);
 });
