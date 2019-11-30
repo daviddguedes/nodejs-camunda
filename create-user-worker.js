@@ -8,7 +8,7 @@ const config = {
 
 const client = new Client(config);
 
-client.subscribe('create-user', async function ({ task, taskService }) {
+client.subscribe('save-database', async function ({ task, taskService }) {
     const username = task.variables.get('username');
     const email = task.variables.get('email');
     const age = task.variables.get('age');

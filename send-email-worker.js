@@ -16,7 +16,5 @@ client.subscribe('send-email', async function ({ task, taskService }) {
     console.log(`Username: ${username}`);
     console.log(`Email: ${email}`);
 
-    console.log(`taskService`, taskService);
-
     await taskService.complete(task);
 });
