@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_0oh91nm" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="3.5.0">
-  <bpmn:process id="cadastrar-usuario" name="Cadastro de usuário" isExecutable="true">
-    <bpmn:startEvent id="StartEvent_1" name="cadastro de usuário&#10;">
+  <bpmn:process id="create-user" name="Create user" isExecutable="true">
+    <bpmn:startEvent id="StartEvent_1" name="create user&#10;">
       <bpmn:outgoing>SequenceFlow_0u9jd39</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0u9jd39" sourceRef="StartEvent_1" targetRef="Task_018ruz0" />
     <bpmn:sequenceFlow id="SequenceFlow_0m5mqga" sourceRef="Task_018ruz0" targetRef="Task_1068b38" />
-    <bpmn:endEvent id="EndEvent_00bc97e" name="usuário cadastrado">
+    <bpmn:endEvent id="EndEvent_00bc97e" name="User created">
       <bpmn:incoming>SequenceFlow_0xh6zek</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:sequenceFlow id="SequenceFlow_0xh6zek" sourceRef="Task_1068b38" targetRef="EndEvent_00bc97e" />
-    <bpmn:serviceTask id="Task_018ruz0" name="Salvar no banco" camunda:type="external" camunda:topic="salvar-usuario-banco">
+    <bpmn:serviceTask id="Task_018ruz0" name="Save on database" camunda:type="external" camunda:topic="create-user">
       <bpmn:incoming>SequenceFlow_0u9jd39</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0m5mqga</bpmn:outgoing>
     </bpmn:serviceTask>
-    <bpmn:serviceTask id="Task_1068b38" name="Enviar email" camunda:type="external" camunda:topic="enviar-email">
+    <bpmn:serviceTask id="Task_1068b38" name="Send email" camunda:type="external" camunda:topic="send-email">
       <bpmn:incoming>SequenceFlow_0m5mqga</bpmn:incoming>
       <bpmn:outgoing>SequenceFlow_0xh6zek</bpmn:outgoing>
     </bpmn:serviceTask>
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
-    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="cadastrar-usuario">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="create-user">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1" bioc:stroke="black" bioc:fill="white">
         <dc:Bounds x="179" y="99" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="169" y="142" width="58" height="40" />
+          <dc:Bounds x="170" y="142" width="56" height="27" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0u9jd39_di" bpmnElement="SequenceFlow_0u9jd39">
@@ -38,7 +38,7 @@
       <bpmndi:BPMNShape id="EndEvent_00bc97e_di" bpmnElement="EndEvent_00bc97e" bioc:stroke="black" bioc:fill="white">
         <dc:Bounds x="692" y="99" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="684" y="142" width="55" height="27" />
+          <dc:Bounds x="681" y="142" width="63" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="SequenceFlow_0xh6zek_di" bpmnElement="SequenceFlow_0xh6zek">
