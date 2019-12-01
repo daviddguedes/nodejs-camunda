@@ -9,7 +9,7 @@ const config = {
 const client = new Client(config);
 
 client.subscribe('operation-failed', async function ({ task, taskService }) {
-    console.log('Operation failed.');
+    console.log(logger.error('Operation failed.'));
 
     await taskService.complete(task);
 });

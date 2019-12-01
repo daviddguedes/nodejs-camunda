@@ -5,12 +5,12 @@
       <biodi:bounds x="150" y="150" width="180" height="80" />
     </extensionElements>
     <decisionTable id="decisionTable_1">
-      <input id="InputClause_05m3has" label="email" camunda:inputVariable="email">
-        <inputExpression id="LiteralExpression_1uj8b0j" typeRef="boolean" expressionLanguage="JUEL">
-          <text>email.contains("gmail")</text>
+      <input id="InputClause_05m3has" label="Email" camunda:inputVariable="email">
+        <inputExpression id="LiteralExpression_1uj8b0j" typeRef="boolean" expressionLanguage="JavaScript">
+          <text>/gmail/.test(email)</text>
         </inputExpression>
       </input>
-      <output id="output_1" label="Approved" typeRef="boolean" />
+      <output id="output_1" label="approved" typeRef="boolean" />
       <rule id="DecisionRule_04an524">
         <inputEntry id="UnaryTests_1r1ay1f">
           <text>true</text>

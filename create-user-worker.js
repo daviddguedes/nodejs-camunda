@@ -1,4 +1,4 @@
-const { Client, logger } = require('camunda-external-task-client-js');
+const { Client, logger, Variables } = require('camunda-external-task-client-js');
 
 const config = {
     baseUrl: 'http://localhost:8080/engine-rest',
@@ -13,8 +13,10 @@ client.subscribe('save-database', async function ({ task, taskService }) {
     const email = task.variables.get('email');
     const age = task.variables.get('age');
 
-    console.log('User created!');
-    console.log(task.variables.getAll());
+    const processVariables = new Variables();
+    processVariables.set("permission", { type: 'grant', level: 20 });
 
-    await taskService.complete(task);
+    console.log(logger.success('User created!'));
+
+    await taskService.complete(task, processVariables);
 });
